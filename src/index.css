@@ -1,13 +1,131 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.todo {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #B6E2D3;
+}
+.todo__header {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+.todo__box {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+}
+.todo-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 15px;
+  --height: 35px;
+}
+.todo-form__input {
+  width: 300px;
+  height: var(--height);
+  border-radius: 25px;
+  background-color: #fff;
+  border: 2px solid #B6E2D3;
+  padding: 0 16px;
+  outline: none;
+}
+.todo-form__button {
+  background-color: #2c9e78;
+  color: white;
+  height: var(--height);
+  border: none;
+  font-weight: 500;
+  border-radius: 20px;
+  font-size: 16px;
+  padding: 4px 16px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.todo-form__button:hover {
+  background-color: #38ca99;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
 }
+.todo-item {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3fffb;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04);
+  padding: 8px 10px;
+  font-weight: 500;
+  transition: all 0.2s linear;
+}
+.todo-item:first-child {
+  margin-top: 30px;
+}
+.todo-item:hover {
+  background-color: #d4fff0;
+}
+.todo-item__buttons {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.todo-item__buttons button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.todo-item__buttons button img {
+  transition: all 0.2s linear;
+}
+.todo-item__buttons button:hover {
+  background-color: #2c9e78;
+}
+.todo-item__buttons button:hover img {
+  filter: contrast(0) brightness(90);
+}
+.todo-item.completed {
+  position: relative;
+  background-color: #f3fffb;
+  pointer-events: none;
+}
+.todo-item.completed::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2c9e78;
+  -webkit-clip-path: polygon(0 0, 3% 0, 100% 100%, 96% 100%);
+  clip-path: polygon(0 0, 3% 0, 100% 100%, 96% 100%);
+  transition: all 0.2s linear;
+}
+.todo-item.completed::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  opacity: 0.5;
+  transition: all 0.2s linear;
+}/*# sourceMappingURL=index.css.map */
